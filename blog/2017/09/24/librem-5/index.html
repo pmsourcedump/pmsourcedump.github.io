@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>postmarketOS // Why supporting the Librem Phone crowdfunding campaign helps postmarketOS (and friends)</title>
+
+    <meta name="description" content="Aiming for a 10 year life-cycle for smartphones">
+    <meta name="keywords" content="postmarketOS">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all">
+
+    <link rel="canonical" href="https://postmarketos.org/blog/2017/09/24/librem-5/">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/codehilite.css">
+    <link rel="alternate" type="application/atom+xml" title="postmarketOS Blog" href="/blog/feed.atom">
+    
+<link rel="stylesheet" href="/static/css/page.css">
+
+  </head>
+  <body>
+    <header class="header">
+            <a class="logo" name="^" href="/">
+                <img src="/logo.svg">
+                <span>postmarketOS</span>
+            </a>
+            <div class="nav">
+                <div class="nav-row1">
+                    <a href="/blog">blog</a>
+                    <a href="/faq.html">faq</a>
+                    <a href="https://wiki.postmarketos.org">wiki</a>
+                    <a href="https://gitlab.com/postmarketOS">src</a>
+                </div>
+                <div class="nav-row2">
+                    <a href="https://wiki.postmarketos.org/wiki/Matrix_and_IRC">matrix/irc</a>
+                    <a href="https://fosstodon.org/@postmarketOS">mastodon</a>
+                </div>
+                <div class="nav-row3">
+                    <a href="https://twitter.com/postmarketOS">twitter</a>
+                    <a href="https://reddit.com/r/postmarketOS">reddit</a>
+                </div>
+            </div>
+            <div class="slogan">
+                a real Linux<br>
+                distribution<br>
+                for phones<br>
+                <small>and other mobile devices.</small>
+            </div>
+            <div class="disclaimer">Alpha version. Calls don't work, etc. Only suitable for hackers.</div>
+        </header>
+        <main class="main">
+            
+<div class="title">
+    <h1>Why supporting the Librem Phone crowdfunding campaign helps postmarketOS (and friends)</h1>
+    <span class="date">September 24, 2017</span>
+    <span class="reading_time">5 min. read</span>
+</div>
+<div class="separator"></div>
+
+<article class="content alt">
+    <h2 id="proprietary-components-make-smartphones-insecure-for-the-masses"><a class="toclink" href="#proprietary-components-make-smartphones-insecure-for-the-masses">Proprietary components make smartphones insecure for the masses</a></h2>
+<p>Whenever you buy <em>any</em> smartphone, you get a device full of proprietary components. These are integrated so deeply with each other that they can access everything on your phone, such as the camera, microphone, browser history and chat messages. Since these components are proprietary, they've been designed to make it <strong>impossible for anyone but the vendor to modify</strong>, and they can only be <strong>understood by others through immense efforts</strong>.</p>
+<p>Oftentimes, when people succeed in analyzing them, they find <strong>security holes</strong> and sometimes even <a href="https://redmine.replicant.us/projects/replicant/wiki/SamsungGalaxyBackdoor">backdoors</a>. Since these devices are only supported for short periods of time by manufacturers and vendors, they refuse to close newly discovered security holes when the support period has run out. The relatively small number of people who are aware of this issue are forced to buy new devices every few years. Meanwhile the unsuspecting general public doesn't realize how insecure their devices are, thus <strong>lowering security for everyone</strong>. What good is it when you have a protected phone, but most other people you meet and communicate with might as well be carrying around spying devices?</p>
+<h2 id="postmarketos-tries-to-fix-existing-devices"><a class="toclink" href="#postmarketos-tries-to-fix-existing-devices">postmarketOS tries to fix existing devices</a></h2>
+<p>Our solution is to replace the entire operating systems of these devices with an alternative one, that uses free and open source software wherever feasible. In order to do that, we're bending the security-focused <a href="https://alpinelinux.org">Alpine Linux</a> (you may know it from Docker, but it is <a href="http://git.net/ml/linux.leaf.devel/2005-08/msg00039.html">much older</a>) to work on all kinds of existing mobile devices. In the spirit of real Linux distributions, there is a package manager and <strong>as much freedom for the user as possible</strong>. We aim for a <strong><a href="https://postmarketos.org/blog/2017/05/26/intro/">10 year life-cycle for smartphones</a></strong> and, although we're in pre-alpha state, we have made <a href="https://postmarketos.org/blog/2017/09/03/100-days-of-postmarketos/">quite some progress</a> and have <a href="https://wiki.postmarketos.org/">lots of documentation</a> available. Ideally we fix all security issues from the outdated vendor OS by using <strong>up-to-date software</strong> (e.g. the <a href="https://postmarketos.org/blog/2017/09/03/100-days-of-postmarketos/#mainline-kernel">Linux kernel</a>).</p>
+<h2 id="librem-5-phone-does-it-right-by-design"><a class="toclink" href="#librem-5-phone-does-it-right-by-design">Librem 5 phone does it right, by design</a></h2>
+<p>The people from Purism provide another way to reach the same goal: They bend <a href="https://debian.org">Debian GNU/Linux</a> for <strong>one specific phone</strong>, which they will create from scratch, the <a href="https://puri.sm/shop/librem-5/">Librem 5</a>. It will have as few proprietary components as necessary, and these will be <strong>isolated in hardware</strong> from the rest of the system. That means, even if someone hacks them through a security hole, those components will be unable to access other components storing or capturing other data (e.g. chat messages.)</p>
+<p>Planned <strong>hardware kill-switches</strong> for camera, microphone, wifi, bluetooth and cellular modem will allow you to turn on certain components, which are highly likely to be proprietary, only when needed. Imagine flipping the microphone switch before and after each phone call - that way you could be sure that it can not listen to any private conversations you are having from person to person while carrying your phone around.</p>
+<p>It will be possible to <strong>exchange</strong> the <strong>battery</strong> and extend the amount of available storage space with a <strong>microSD</strong> slot, two important characteristics that increase the lifetime of a phone.</p>
+<h2 id="common-ground"><a class="toclink" href="#common-ground">Common ground</a></h2>
+<p>The Librem 5 is privacy and security focused, so we expect it to have <strong>full disk encryption</strong>. Full disk encryption safeguards the data on your device by requiring a password on when the device is started before any of the data on it is accessible. And without that password, someone else is not able to find out which data is stored on the device, or which programs are installed. In order to type in this password on a PC you would normally use a physical keyboard, but on a phone you will need an <strong>on-screen touch keyboard</strong>. We have put some research into this topic already and, as there was no existing Linux program just for that purpose, we created our own program: <a href="https://github.com/postmarketOS/osk-sdl">osk-sdl</a>. That is one example where the Purism could use a component <strong>started by the postmarketOS community</strong> and make it a shared component we develop and improve with <strong>joined forces</strong>.</p>
+<p>User interfaces are another example: Purism will either use <strong><a href="https://www.kde.org/announcements/kde-purism-librem5.php">KDE's plasma-mobile</a></strong> or <strong><a href="https://www.gnome.org/news/2017/09/gnome-foundation-partners-with-purism-to-support-its-efforts-to-build-the-librem-5-smartphone/">Gnome</a></strong>, while postmarketOS is interested in <a href="https://github.com/postmarketOS/pmbootstrap/issues/62">all kinds of mobile-friendly user interfaces</a>. We have done <a href="https://postmarketos.org/blog/2017/09/03/100-days-of-postmarketos/#plasma-mobile-kdes-plasma-desktop-for-phones">early work</a> on plasma-mobile already, and Gnome is <a href="https://pkgs.alpinelinux.org/packages?name=gnome*&amp;branch=edge&amp;repo=&amp;arch=&amp;maintainer=">directly provided</a> by our upstream friends. So no matter which one will they decide to run on the Librem 5, we will benefit from them making sure it is ready for daily usage on mobile phones.</p>
+<p>We were happy to learn that the Purism has teamed up with <strong><a href="https://matrix.org/blog/2017/08/24/the-librem-5-from-purism-a-matrix-native-smartphone/">Matrix</a></strong> to provide the <strong>native dialer</strong> and <strong>messaging program</strong>. Despite not involving red or blue pills and an illusion of reality like the famous movie, Matrix is a decentralized open source protocol for real-time communication with state-of-the-art end-to-end encryption. It is a big win for privacy and security, and Librem users will be able to use it by default. Traditional, unencrypted telephony and SMS are also available for use when necessary. The best part for us is of course, that we could <strong>package</strong> the resulting applications <strong>for postmarketOS</strong>, bringing them to a wide range of old devices!</p>
+<h2 id="all-or-nothing"><a class="toclink" href="#all-or-nothing">All or nothing</a></h2>
+<p>There is a pattern here: Once the Librem 5 development takes off, everything that gets built for it (by Purism or by the wider community) and that is not strictly tied to Debian, can be used by postmarketOS and friends.</p>
+<p><a href="https://puri.sm/shop/librem-5/">One Librem Phone costs $599</a>, but it is possible to support the campaign with other amounts of cash (starting from $20). While the price tag for the Librem 5 is high compared to cheap Android phones, keep in mind that it is for a device giving you <strong>freedom, privacy, security</strong> and, considering how active and time-proven the Debian community is, it will likely get <strong>updates until it physically breaks</strong>. The estimated delivery date is January 2019.</p>
+<p>No matter which Linux distribution, phone, desktop environment, messenger, init system or libc you prefer: <strong>A successful Librem 5 campaign will rapidly improve the situation for all Linux distributions on phones.</strong> But it's an all or nothing campaign. If our Purism friends don't reach their funding goal, none of these awesome features will be implemented by them and the Librem 5 will not see the light of day.</p>
+<p><strong><a href="https://puri.sm/shop/librem-5/">So let's make sure that it succeeds.</a></strong></p>
+<h2 id="comments"><a class="toclink" href="#comments">Comments</a></h2>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=15324169">Hacker News</a></li>
+<li><a href="https://www.reddit.com/r/postmarketOS/duplicates/724b3t/why_supporting_the_librem_phone_crowdfunding/">Reddit</a></li>
+<li><a href="https://twitter.com/postmarketOS/status/911900003492352000">Twitter</a></li>
+</ul>
+</article>
+
+        </main>
+        <footer class="footer">
+            <a href="https://wiki.postmarketos.org/wiki/Contributing" class="contribute">
+                <img src="/static/img/icons-numix/emote-love-symbolic.svg">
+                <span>Contribute</span>
+            </a>
+            <div class="nav-bottom">
+                <!-- scroll to top: the JS version is slightly nicer, as it does not change the URL.
+                                    but the non-JS version works as well. -->
+                <a href="#^" onclick="window.scrollTo(0,0); return false">
+                    <img src="/static/img/icons-numix/go-top-symbolic.svg"
+                        >back to top
+                </a>
+                <a href="/blog/feed.atom"><img src="/static/img/icons-numix/application-rss+xml-symbolic.svg"
+                    >feed</a>
+                <a href="/privacy-policy.html"><img src="/static/img/icons-numix/changes-secure-symbolic.svg"
+                    >privacy policy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2019 postmarketOS.org contributors
+            </div>
+        </footer>
+  </body>
+</html>

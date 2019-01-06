@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>postmarketOS // Aiming for a 10 year life-cycle for smartphones</title>
+
+    <meta name="description" content="Aiming for a 10 year life-cycle for smartphones">
+    <meta name="keywords" content="postmarketOS">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all">
+
+    <link rel="canonical" href="https://postmarketos.org/blog/2017/05/26/intro/">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/codehilite.css">
+    <link rel="alternate" type="application/atom+xml" title="postmarketOS Blog" href="/blog/feed.atom">
+    
+<link rel="stylesheet" href="/static/css/page.css">
+
+  </head>
+  <body>
+    <header class="header">
+            <a class="logo" name="^" href="/">
+                <img src="/logo.svg">
+                <span>postmarketOS</span>
+            </a>
+            <div class="nav">
+                <div class="nav-row1">
+                    <a href="/blog">blog</a>
+                    <a href="/faq.html">faq</a>
+                    <a href="https://wiki.postmarketos.org">wiki</a>
+                    <a href="https://gitlab.com/postmarketOS">src</a>
+                </div>
+                <div class="nav-row2">
+                    <a href="https://wiki.postmarketos.org/wiki/Matrix_and_IRC">matrix/irc</a>
+                    <a href="https://fosstodon.org/@postmarketOS">mastodon</a>
+                </div>
+                <div class="nav-row3">
+                    <a href="https://twitter.com/postmarketOS">twitter</a>
+                    <a href="https://reddit.com/r/postmarketOS">reddit</a>
+                </div>
+            </div>
+            <div class="slogan">
+                a real Linux<br>
+                distribution<br>
+                for phones<br>
+                <small>and other mobile devices.</small>
+            </div>
+            <div class="disclaimer">Alpha version. Calls don't work, etc. Only suitable for hackers.</div>
+        </header>
+        <main class="main">
+            
+<div class="title">
+    <h1>Aiming for a 10 year life-cycle for smartphones</h1>
+    <span class="date">May 26, 2017</span>
+    <span class="reading_time">6 min. read</span>
+</div>
+<div class="separator"></div>
+
+<article class="content alt">
+    <p><a href="/static/img/2017-05-26/i9100-filled.jpg"><img alt="Samsung Galaxy SII (i9100) running postmarketOS" class="border" src="/static/img/2017-05-26/i9100-filled-thumb.jpg" /></a></p>
+<p><em>Introduction post to <a href="https://github.com/postmarketOS/">postmarketOS</a>, a touch-optimized, pre-configured <a href="https://alpinelinux.org/">Alpine Linux</a> with own packages, that can be installed on smartphones. (Not usable for most people yet!)</em></p>
+<h2 id="minimalistic-linux-distributions-run-fine-on-ten-year-old-pcs"><a class="toclink" href="#minimalistic-linux-distributions-run-fine-on-ten-year-old-pcs">Minimalistic Linux distributions run fine on ten year old PCs.</a></h2>
+<p>It is 2017. Pick an average PC from 2007 and install a minimal Linux based operating system. You will be able to do basic computing tasks (eg. surfing the web, reading E-Mails, listening to music, chatting) just like on an <em>expensive</em> modern PC. You will even get security updates, so your old computer is protected, just like as a new one.</p>
+<h2 id="why-are-androidlinux-phones-different"><a class="toclink" href="#why-are-androidlinux-phones-different">Why are Android/Linux phones different?</a></h2>
+<p>Androids architecture is based on <strong>forking</strong> (one might as well say <em>copy-pasting</em>) <strong>the entire code-base for each and every device <em>and</em> Android version.</strong> And then working on that independent, basically instantly incompatible version. Especially adding device-specific drivers plays an important role.</p>
+<p>This workflow makes it next to impossible to patch all Android devices with security updates in time or at all (<em>Stagefright</em> vulnerabilities for example rendered <a href="https://threatpost.com/stagefright-2-0-vulnerabilities-affect-1-billion-android-devices/114863/">one billion devices</a> vulnerable). And even if the vendor provides updates, it will only be for a limited time and then you must buy a new device to get security updates or the latest Android version. How convenient!</p>
+<p>Alright, so there is the <a href="https://lineageos.org/">LineageOS</a> community, which provides weekly updates for an impressive number of smartphones. They provide a practical solution today, and we are very grateful for that. However, such Android based projects will always run behind Google and the phone industry, fixing only symptoms but never the root-cause.</p>
+<p><em>This is just the tip of the iceberg. Android has way more problems, read Cascardo's <a href="https://cascardo.eti.br/blog/GNU_on_Smartphones_part_II/">GNU on Smartphones (part II)</a> for more nightmares.</em></p>
+<h2 id="we-can-fix-this-as-a-community"><a class="toclink" href="#we-can-fix-this-as-a-community">We can fix this as a community.</a></h2>
+<p>Here is the solution: Bend an existing Linux distribution to run on smartphones. Apply all necessary changes as small patches and upstream them, where it makes sense.</p>
+<p>Of course we are not the only ones, that came to this conclusion - especially in the last few weeks with the <a href="https://halium.org/">Halium</a> project rising <em>(greetings!)</em>. We are all-in for working together — sharing udev rules, merging Android kernels together, whatever makes sense!</p>
+<p><a href="https://ollieparanoid.github.io/img/2017-05-26/i9100/telnet.jpg"><img alt="Unlocking encrypted rootfs via telnet" class="border" src="https://ollieparanoid.github.io/img/2017-05-26/i9100/telnet-thumb.jpg" title="Unlocking encrypted rootfs via telnet" /></a></p>
+<h2 id="postmarketos-architecture"><a class="toclink" href="#postmarketos-architecture">postmarketOS architecture</a></h2>
+<p>We're working on an Alpine Linux based distribution called postmarketOS where each phone will have <strong>only one <a href="https://github.com/postmarketOS/pmbootstrap/tree/master/aports/device/device-samsung-i9100/">unique</a> <a href="https://github.com/postmarketOS/pmbootstrap/tree/master/aports/device/device-lg-mako">package</a></strong> — all other packages are shared among all devices.</p>
+<p>These <code>device-$vendor-$name</code> packages contain a so-called <code>/etc/deviceinfo</code> file, which <a href="https://github.com/postmarketOS/pmbootstrap/blob/master/aports/device/device-samsung-i9100/deviceinfo">describes</a> <a href="https://github.com/postmarketOS/pmbootstrap/blob/master/aports/device/device-lg-mako/deviceinfo">what</a> makes the device special: SD card availability, which flash software to use and other information. The file format is not stable yet, and once we have common kernels for multiple devices, We'd like to include the required modules and <code>dtb</code> name.</p>
+<p>And just to make it clear, postmarketOS does not fit the Halium model, as it avoids the Android build system entirely and does <em>not</em> run any part of the Android userspace next to its more or less typical Linux userspace. <em>(At least not in the regular install, but it could come at some point in the future as optional compatibility layer for Android applications if someone wants to work on it.)</em></p>
+<h2 id="pmbootstrap"><a class="toclink" href="#pmbootstrap">pmbootstrap</a></h2>
+<p><em>Technical details incoming! If you're not into that, skip this section.</em></p>
+<p>Alpine Linux is <em>really small</em>. A base installation is only about 6 MB in size and takes not more than a few seconds to extract! Thanks to this characteristic, we can have a bootstrap program that abstracts everything in <a href="https://en.wikipedia.org/wiki/chroot">chroots</a> and therefore basically runs on top of any Linux distribution, which has Python 3 and the <code>openssl</code> command line program available.</p>
+<p>Consequently, the host system does not get touched when installing the required programs (<a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot"><code>fastboot</code></a> etc.) and your distribution doesn't even need to have them packaged.</p>
+<p>Quick feature rundown:</p>
+<ul>
+<li>Chroot setup (with distro-independent <a href="https://wiki.debian.org/QemuUserEmulation">QEMU user emulation</a>):<ul>
+<li><code>x86_64</code>* (building, flashing, ...)</li>
+<li><code>armhf</code>* (building)</li>
+<li><code>armhf</code>* (target rootfs)</li>
+</ul>
+</li>
+<li>Clean chroot shutdown (<code>umount</code>) and zapping</li>
+<li>Build software as packages:<ul>
+<li>Wraps <code>abuild</code>, the <a href="https://github.com/alpinelinux/abuild/blob/master/abuild.in#L3">"light version of <code>makepkg</code>"</a></li>
+<li>Alpine Linux' <a href="https://wiki.alpinelinux.org/wiki/APKBUILD_Reference"><code>APKBUILD</code>s</a> are very similar to Arch Linux' <code>PKGBUILD</code>s</li>
+</ul>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Cross_compiler">Cross-compile</a> <strong>all</strong> <code>armhf</code>-packages:<ul>
+<li>Linux Kernel: build with cross-compiler in <code>x86_64</code> chroot</li>
+<li>Other: build in <code>armhf</code> chroot, use cross-compiler with <a href="https://en.wikipedia.org/wiki/distcc"><code>distcc</code></a> from <code>x86_64</code> chroot (<a href="https://archlinuxarm.org/wiki/Distcc_Cross-Compiling">alarm-style</a>)</li>
+<li>Use Alpine Linux' shipped modern <code>gcc</code>, no pre-built Android toolchain</li>
+</ul>
+</li>
+<li>Effective caching out of the box (survives chroot zaps):<ul>
+<li><a href="https://ccache.samba.org/"><code>ccache</code></a> (also works with <code>distcc</code>/cross-compiler)</li>
+<li>Alpine Linux package cache</li>
+</ul>
+</li>
+<li>Installation targets:<ul>
+<li>Raw image file (flash as "system" partition)</li>
+<li>SD card</li>
+</ul>
+</li>
+<li>Flasher abstraction:<ul>
+<li><a href="https://en.wikipedia.org/wiki/Android_software_development#Fastboot"><code>fastboot</code></a></li>
+<li><a href="http://glassechidna.com.au/heimdall/"><code>heimdall</code></a></li>
+<li>... really easy to add more!</li>
+</ul>
+</li>
+<li>Logging:<ul>
+<li>all shell commands executed are logged in an extra file</li>
+<li>readable overview is displayed on the screen</li>
+</ul>
+</li>
+<li>Security:<ul>
+<li>Initial package manager download<ul>
+<li>Signature verification with <code>openssl</code> against keys shipped with pmbootstrap</li>
+<li>Minimum installed version check (for downloaded package and version reported by the extracted binary)</li>
+</ul>
+</li>
+<li>All executed shell commands get properly escaped with Python's built-in <a href="https://docs.python.org/3/library/shlex.html">shlex</a></li>
+<li>Working testcases for the above two points</li>
+<li>Only using root rights where necessary (through sudo)</li>
+<li>No default passwords in the installation: The <code>install</code> action asks for the <em>user's</em> and for the <em>root partition</em> password.</li>
+</ul>
+</li>
+</ul>
+<p><small>* <code>x86_64</code>/<code>armhf</code>: Example architectures for host/target. The code is generic, so it should work with any architectures supported by Alpine Linux.</small></p>
+<h2 id="future-goals-and-where-you-could-help"><a class="toclink" href="#future-goals-and-where-you-could-help">Future goals and where <em>you</em> could help</a></h2>
+<p>Rough direction of where we'd like postmarketOS to head to. In case you're a hacker who wants to help, feel free to do so. But please write into the <a href="https://github.com/postmarketOS/pmbootstrap/issues">tracker</a> before starting serious work. This way we can make sure, that we do not have redundant work.</p>
+<h3 id="devices"><a class="toclink" href="#devices">Devices</a></h3>
+<p>Pick an old Android device, that you don't need anymore and start porting postmarketOS for it. It should be pretty straight forward. One <code>device-*</code> package, one for the kernel, calibrate the touchscreen, and the demos should more or less work already!</p>
+<p>If you're feeling adventurous, try a non-Android device. <a href="https://en.wikipedia.org/wiki/OpeniBoot">How about iPhones</a>?</p>
+<h3 id="drivers"><a class="toclink" href="#drivers">Drivers</a></h3>
+<p>Make the following peripherals work:</p>
+<ul>
+<li>WiFi</li>
+<li>Audio</li>
+<li>Modem (Phone calls, mobile internet)</li>
+<li>Hardware buttons (Volume keys, home button)</li>
+<li>Camera</li>
+<li>...</li>
+</ul>
+<p>In most cases, the drivers are already provided by the Android/LineageOS kernels, that we currently use and only need to be configured in the userspace (for example with <a href="https://en.wikipedia.org/wiki/Udev">udev rules</a>).</p>
+<p>The long time goal is using the <a href="https://lwn.net/Articles/680109/">mainline kernel</a>.</p>
+<h3 id="phone-interface"><a class="toclink" href="#phone-interface">Phone interface</a></h3>
+<p>postmarketOS is developed in the spirit of regular Linux distributions, so there's no problem in having multiple phone interfaces (just like KDE/Gnome/XFCE/...) and let the user choose.</p>
+<p>See the current status in <a href="https://github.com/postmarketOS/pmbootstrap/issues/62">#62</a>.</p>
+<h3 id="security"><a class="toclink" href="#security">Security</a></h3>
+<p>Great care has been taken to make pmbootstrap safe, as it will run on productive systems of postmarketOS developers. This is not the case for postmarketOS in its current proof-of-concept state (Weston runs as root, ...) so we must work on that before it can be used in real life. Even better would be <a href="https://en.wikipedia.org/wiki/Privilege_separation">privilege separation</a> throughout the entire OS.</p>
+<p><em>This post was originally published <a href="https://ollieparanoid.github.io/post/postmarketOS">here</a>. It has been slightly modified to remove outdated information and to reflect the community efforts.</em></p>
+<h3 id="photos"><a class="toclink" href="#photos">Photos</a></h3>
+<p><div class="grid"><div class="grid-bottom">
+<a href="/static/img/2017-05-26/i9100-demos.jpg"><img alt="postmarketOS demos menu" src="/static/img/2017-05-26/i9100-demos-thumb.jpg" /></a>
+<a href="/static/img/2017-05-26/i9100-firefox.jpg"><img alt="Firefox running in XWayland" src="/static/img/2017-05-26/i9100-firefox-thumb.jpg" /></a>
+<a href="/static/img/2017-05-26/i9100-htop.jpg"><img alt="htop in two weston-terminals" src="/static/img/2017-05-26/i9100-htop-thumb.jpg" /></a>
+<a href="/static/img/2017-05-26/i9100-smoke.jpg"><img alt="Weston smoke demo" src="/static/img/2017-05-26/i9100-smoke-thumb.jpg" /></a>
+<a href="/static/img/2017-05-26/mako-editor.jpg"><img alt="lg-mako: colors are red, but weston-editor works due to the bigger screen size" src="/static/img/2017-05-26/mako-editor-thumb.jpg" /></a>
+</div></div>
+</article>
+
+        </main>
+        <footer class="footer">
+            <a href="https://wiki.postmarketos.org/wiki/Contributing" class="contribute">
+                <img src="/static/img/icons-numix/emote-love-symbolic.svg">
+                <span>Contribute</span>
+            </a>
+            <div class="nav-bottom">
+                <!-- scroll to top: the JS version is slightly nicer, as it does not change the URL.
+                                    but the non-JS version works as well. -->
+                <a href="#^" onclick="window.scrollTo(0,0); return false">
+                    <img src="/static/img/icons-numix/go-top-symbolic.svg"
+                        >back to top
+                </a>
+                <a href="/blog/feed.atom"><img src="/static/img/icons-numix/application-rss+xml-symbolic.svg"
+                    >feed</a>
+                <a href="/privacy-policy.html"><img src="/static/img/icons-numix/changes-secure-symbolic.svg"
+                    >privacy policy</a>
+            </div>
+            <div class="copyright">
+                &copy; 2019 postmarketOS.org contributors
+            </div>
+        </footer>
+  </body>
+</html>

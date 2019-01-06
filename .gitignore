@@ -1,0 +1,3 @@
+# don't upload the big files
+static/video
+static/slides
