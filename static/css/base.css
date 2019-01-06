@@ -68,7 +68,7 @@ h1 {
                         1fr
                         auto
                         auto;
-    
+
     min-height: 480px;
 
     background-image: url(/static/img/nexus5-bg.jpg);
@@ -209,7 +209,7 @@ footer {
 
 .copyright {
     grid-area: copyright;
-    
+
     color: white;
     margin: 5px 30px 15px;
     font-size: 11pt;
