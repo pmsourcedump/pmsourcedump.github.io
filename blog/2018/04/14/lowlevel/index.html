@@ -128,15 +128,16 @@ Using an interface in the <a href="http://read.pudn.com/downloads119/sourcecode/
 <p><div class="grid"><div class="grid-side">
 <a href="/static/img/2018-04/motorola-c138-calypso.jpg"><img alt="" class="border" src="/static/img/2018-04/motorola-c138-calypso-thumb.jpg" /></a></p>
 </div><div class="grid-text">
-The good news is, there is already a free software implementation of a GSM baseband called <a href="https://osmocom.org/projects/baseband/wiki">OsmocomBB</a>. But it is only compatible with phones based on the TI Calypso chipset, such as the Motorola C138 (photo on the right). Given that the Motorola C138 came out in 2006 and is no longer produced, OsmocomBB's use is limited unless it gets ported to newer platforms.
+The good news is, there is already a free software implementation of a GSM baseband called <a href="https://osmocom.org/projects/baseband/wiki">OsmocomBB</a>. But it is only compatible with phones based on the TI Calypso chipset, such as the Motorola C138 (photo on the right). Given that the Motorola C138 came out in 2006 and is no longer produced, OsmocomBB's use is limited unless it gets ported to newer platforms.</p>
+<p>In search of an alternative, <a href="https://github.com/unrznbl">@unrznbl</a> chose the Fernvale platform as new target. There's a <a href="https://media.ccc.de/v/31c3_-_6156_-_en_-_saal_1_-_201412282145_-_fernvale_an_open_hardware_and_software_platform_based_on_the_nominally_closed-source_mt6260_soc_-_bunnie_-_xobs">nice introduction talk</a> by its creators that explains how Fernvale was created to enable open source engineers to build phones and other small devices with the cheap MT6260 SoC.
 </div></div>
-<p>In search of an alternative, <a href="https://github.com/unrznbl">@unrznbl</a> chose the Fernvale platform as new target. There's a <a href="https://media.ccc.de/v/31c3_-_6156_-_en_-_saal_1_-_201412282145_-_fernvale_an_open_hardware_and_software_platform_based_on_the_nominally_closed-source_mt6260_soc_-_bunnie_-_xobs">nice introduction talk</a> by its creators that explains how Fernvale was created to enable open source engineers to build phones and other small devices with the cheap MT6260 SoC. Not only do they hack the hardware, but also provide justifiable concepts to re-implement necessary code from abstracting facts (e.g. DRAM calibration data) found in leaked source core instead of copy and pasting.</p>
+Not only do they hack the hardware, but also provide justifiable concepts to re-implement necessary code from abstracting facts (e.g. DRAM calibration data) found in leaked source core instead of copy and pasting.</p>
 <p><div class="grid"><div class="grid-side">
 <a href="/static/img/2018-04/fernvale-frond-front.jpg"><img alt="" class="border" src="/static/img/2018-04/fernvale-frond-front-thumb.jpg" /></a></p>
 </div><div class="grid-text">
 Fernvale consists of three development boards centered around the MT6260 chip, allowing for a much easier way to develop and debug your own software compared to having the chip integrated on a phone. Once custom firmware functions on Fernvale's cellular modem, it will also function on existing phones with the same SoC as well.
 </div></div>
-<p>Part of the Fernvale project is the first-stage boot environment called <a href="https://github.com/xobs/fernly/">Fernly</a>, as well as a port of the <a href="https://en.wikipedia.org/wiki/NuttX">NuttX</a> real-time operating system.</p>
+Part of the Fernvale project is the first-stage boot environment called <a href="https://github.com/xobs/fernly/">Fernly</a>, as well as a port of the <a href="https://en.wikipedia.org/wiki/NuttX">NuttX</a> real-time operating system.</p>
 <h2 id="blinking-led"><a class="toclink" href="#blinking-led">Blinking LED</a></h2>
 <p><div class="grid"><div class="grid-side">
 <a href="/static/video/2018-04/osmocom-bb-blink.mp4"><img alt="" class="border" src="/static/img/2018-04/osmocombb-blink.gif" /></a></p>
